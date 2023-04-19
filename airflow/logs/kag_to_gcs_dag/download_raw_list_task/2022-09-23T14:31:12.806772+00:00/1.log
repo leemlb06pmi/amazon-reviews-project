@@ -1,0 +1,26 @@
+[2022-09-23 14:31:15,704] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: kag_to_gcs_dag.download_raw_list_task manual__2022-09-23T14:31:12.806772+00:00 [queued]>
+[2022-09-23 14:31:15,712] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: kag_to_gcs_dag.download_raw_list_task manual__2022-09-23T14:31:12.806772+00:00 [queued]>
+[2022-09-23 14:31:15,712] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-23 14:31:15,712] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2022-09-23 14:31:15,713] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-23 14:31:15,722] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_raw_list_task> on 2022-09-23 14:31:12.806772+00:00
+[2022-09-23 14:31:15,728] {standard_task_runner.py:52} INFO - Started process 1561 to run task
+[2022-09-23 14:31:15,731] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'kag_to_gcs_dag', 'download_raw_list_task', 'manual__2022-09-23T14:31:12.806772+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/kag_to_gcs_dag.py', '--cfg-path', '/tmp/tmpgydf3su9', '--error-file', '/tmp/tmpcn_h48xt']
+[2022-09-23 14:31:15,732] {standard_task_runner.py:77} INFO - Job 3: Subtask download_raw_list_task
+[2022-09-23 14:31:15,774] {logging_mixin.py:109} INFO - Running <TaskInstance: kag_to_gcs_dag.download_raw_list_task manual__2022-09-23T14:31:12.806772+00:00 [running]> on host 31708a4d5ab1
+[2022-09-23 14:31:15,821] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=kag_to_gcs_dag
+AIRFLOW_CTX_TASK_ID=download_raw_list_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-23T14:31:12.806772+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-23T14:31:12.806772+00:00
+[2022-09-23 14:31:15,822] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-09-23 14:31:15,822] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'kaggle datasets files -v cynthiarempel/amazon-us-customer-reviews-dataset > raw_files.csv']
+[2022-09-23 14:31:15,837] {subprocess.py:85} INFO - Output:
+[2022-09-23 14:31:17,479] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-09-23 14:31:17,507] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=kag_to_gcs_dag, task_id=download_raw_list_task, execution_date=20220923T143112, start_date=20220923T143115, end_date=20220923T143117
+[2022-09-23 14:31:17,550] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-09-23 14:31:17,595] {local_task_job.py:264} INFO - 1 downstream tasks scheduled from follow-on schedule check

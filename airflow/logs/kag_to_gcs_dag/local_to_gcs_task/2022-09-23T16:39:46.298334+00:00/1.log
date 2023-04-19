@@ -1,0 +1,131 @@
+[2022-09-23 16:39:48,465] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: kag_to_gcs_dag.local_to_gcs_task manual__2022-09-23T16:39:46.298334+00:00 [queued]>
+[2022-09-23 16:39:48,475] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: kag_to_gcs_dag.local_to_gcs_task manual__2022-09-23T16:39:46.298334+00:00 [queued]>
+[2022-09-23 16:39:48,475] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-23 16:39:48,475] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2022-09-23 16:39:48,475] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-09-23 16:39:48,487] {taskinstance.py:1259} INFO - Executing <Task(PythonOperator): local_to_gcs_task> on 2022-09-23 16:39:46.298334+00:00
+[2022-09-23 16:39:48,495] {standard_task_runner.py:52} INFO - Started process 339 to run task
+[2022-09-23 16:39:48,498] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'kag_to_gcs_dag', 'local_to_gcs_task', 'manual__2022-09-23T16:39:46.298334+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/kag_to_gcs_dag.py', '--cfg-path', '/tmp/tmpckbswlu5', '--error-file', '/tmp/tmpylkpr_vh']
+[2022-09-23 16:39:48,499] {standard_task_runner.py:77} INFO - Job 3: Subtask local_to_gcs_task
+[2022-09-23 16:39:48,549] {logging_mixin.py:109} INFO - Running <TaskInstance: kag_to_gcs_dag.local_to_gcs_task manual__2022-09-23T16:39:46.298334+00:00 [running]> on host 2d41e074c0f7
+[2022-09-23 16:39:48,597] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=kag_to_gcs_dag
+AIRFLOW_CTX_TASK_ID=local_to_gcs_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-09-23T16:39:46.298334+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-09-23T16:39:46.298334+00:00
+[2022-09-23 16:39:50,210] {logging_mixin.py:109} INFO - downloading amazon_reviews_us_Video_v1_00.tsv
+[2022-09-23 16:39:50,872] {logging_mixin.py:109} INFO - removing file amazon_reviews_us_Video_v1_00.tsv
+[2022-09-23 16:39:50,873] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/dags/kag_to_gcs_dag.py", line 53, in upload_to_gcs
+    api.dataset_download_file(f"{ds.ref}", f"{i}")
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api/kaggle_api_extended.py", line 1186, in dataset_download_file
+    _preload_content=False))
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api/kaggle_api.py", line 1593, in datasets_download_file_with_http_info
+    collection_formats=collection_formats)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api_client.py", line 334, in call_api
+    _preload_content, _request_timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api_client.py", line 165, in __call_api
+    _request_timeout=_request_timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api_client.py", line 355, in request
+    headers=headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/rest.py", line 251, in GET
+    query_params=query_params)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/rest.py", line 241, in request
+    raise ApiException(http_resp=r)
+kaggle.rest.ApiException: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json', 'Date': 'Fri, 23 Sep 2022 16:39:49 GMT', 'Access-Control-Allow-Credentials': 'true', 'Set-Cookie': 'ka_sessionid=1018e196554e07f3ffe999e6887f23bb; max-age=2626560; path=/, GCLB=CK2Vm-nQlp-1Ag; path=/; HttpOnly', 'Transfer-Encoding': 'chunked', 'Vary': 'Accept-Encoding', 'Turbolinks-Location': 'https://www.kaggle.com/api/v1/datasets/download/cynthiarempel/amazon-us-customer-reviews-dataset/amazon_reviews_us_Video_v1_00.tsv', 'X-Kaggle-MillisecondsElapsed': '571', 'X-Kaggle-RequestId': '34777324131e81d90c46134417b1c896', 'X-Kaggle-ApiVersion': '1.5.12', 'X-Frame-Options': 'SAMEORIGIN', 'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload', 'Content-Security-Policy': "object-src 'none'; script-src 'nonce-exWmJgRJNZb9sQQd7I0fGw==' 'report-sample' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:; frame-src 'self' https://www.kaggleusercontent.com https://www.youtube.com/embed/ https://polygraph-cool.github.io https://www.google.com/recaptcha/ https://form.jotform.com https://submit.jotform.us https://submit.jotformpro.com https://submit.jotform.com https://www.docdroid.com https://www.docdroid.net https://kaggle-static.storage.googleapis.com https://kaggle-static-staging.storage.googleapis.com https://kkb-dev.jupyter-proxy.kaggle.net https://kkb-staging.jupyter-proxy.kaggle.net https://kkb-production.jupyter-proxy.kaggle.net https://kkb-dev.firebaseapp.com https://kkb-staging.firebaseapp.com https://kkb-production.firebaseapp.com https://kaggle-metastore-test.firebaseapp.com https://kaggle-metastore.firebaseapp.com https://apis.google.com https://content-sheets.googleapis.com/ https://accounts.google.com/ https://storage.googleapis.com https://docs.google.com https://drive.google.com https://calendar.google.com/; base-uri 'none'; report-uri https://csp.withgoogle.com/csp/kaggle/20201130;", 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: b'{"code":404,"message":"Not found"}'
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/airflow/dags/kag_to_gcs_dag.py", line 57, in upload_to_gcs
+    except HTTPError as err:
+NameError: name 'HTTPError' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/kag_to_gcs_dag.py", line 63, in upload_to_gcs
+    os.remove(f"{AIRFLOW_HOME}/{file_name}")
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/amazon_reviews_us_Video_v1_00.tsv'
+[2022-09-23 16:39:50,886] {taskinstance.py:1277} INFO - Marking task as UP_FOR_RETRY. dag_id=kag_to_gcs_dag, task_id=local_to_gcs_task, execution_date=20220923T163946, start_date=20220923T163948, end_date=20220923T163950
+[2022-09-23 16:39:50,900] {standard_task_runner.py:92} ERROR - Failed to execute job 3 for task local_to_gcs_task
+Traceback (most recent call last):
+  File "/opt/airflow/dags/kag_to_gcs_dag.py", line 53, in upload_to_gcs
+    api.dataset_download_file(f"{ds.ref}", f"{i}")
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api/kaggle_api_extended.py", line 1186, in dataset_download_file
+    _preload_content=False))
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api/kaggle_api.py", line 1593, in datasets_download_file_with_http_info
+    collection_formats=collection_formats)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api_client.py", line 334, in call_api
+    _preload_content, _request_timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api_client.py", line 165, in __call_api
+    _request_timeout=_request_timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/api_client.py", line 355, in request
+    headers=headers)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/rest.py", line 251, in GET
+    query_params=query_params)
+  File "/home/airflow/.local/lib/python3.7/site-packages/kaggle/rest.py", line 241, in request
+    raise ApiException(http_resp=r)
+kaggle.rest.ApiException: (404)
+Reason: Not Found
+HTTP response headers: HTTPHeaderDict({'Content-Type': 'application/json', 'Date': 'Fri, 23 Sep 2022 16:39:49 GMT', 'Access-Control-Allow-Credentials': 'true', 'Set-Cookie': 'ka_sessionid=1018e196554e07f3ffe999e6887f23bb; max-age=2626560; path=/, GCLB=CK2Vm-nQlp-1Ag; path=/; HttpOnly', 'Transfer-Encoding': 'chunked', 'Vary': 'Accept-Encoding', 'Turbolinks-Location': 'https://www.kaggle.com/api/v1/datasets/download/cynthiarempel/amazon-us-customer-reviews-dataset/amazon_reviews_us_Video_v1_00.tsv', 'X-Kaggle-MillisecondsElapsed': '571', 'X-Kaggle-RequestId': '34777324131e81d90c46134417b1c896', 'X-Kaggle-ApiVersion': '1.5.12', 'X-Frame-Options': 'SAMEORIGIN', 'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload', 'Content-Security-Policy': "object-src 'none'; script-src 'nonce-exWmJgRJNZb9sQQd7I0fGw==' 'report-sample' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https: http:; frame-src 'self' https://www.kaggleusercontent.com https://www.youtube.com/embed/ https://polygraph-cool.github.io https://www.google.com/recaptcha/ https://form.jotform.com https://submit.jotform.us https://submit.jotformpro.com https://submit.jotform.com https://www.docdroid.com https://www.docdroid.net https://kaggle-static.storage.googleapis.com https://kaggle-static-staging.storage.googleapis.com https://kkb-dev.jupyter-proxy.kaggle.net https://kkb-staging.jupyter-proxy.kaggle.net https://kkb-production.jupyter-proxy.kaggle.net https://kkb-dev.firebaseapp.com https://kkb-staging.firebaseapp.com https://kkb-production.firebaseapp.com https://kaggle-metastore-test.firebaseapp.com https://kaggle-metastore.firebaseapp.com https://apis.google.com https://content-sheets.googleapis.com/ https://accounts.google.com/ https://storage.googleapis.com https://docs.google.com https://drive.google.com https://calendar.google.com/; base-uri 'none'; report-uri https://csp.withgoogle.com/csp/kaggle/20201130;", 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'strict-origin-when-cross-origin', 'Via': '1.1 google', 'Alt-Svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'})
+HTTP response body: b'{"code":404,"message":"Not found"}'
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/airflow/dags/kag_to_gcs_dag.py", line 57, in upload_to_gcs
+    except HTTPError as err:
+NameError: name 'HTTPError' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 174, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 185, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/kag_to_gcs_dag.py", line 63, in upload_to_gcs
+    os.remove(f"{AIRFLOW_HOME}/{file_name}")
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/amazon_reviews_us_Video_v1_00.tsv'
+[2022-09-23 16:39:50,922] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-09-23 16:39:50,971] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
